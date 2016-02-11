@@ -1,0 +1,1077 @@
+FORMAT: 1A
+HOST: http://localhost:8080/channelmanager-api
+
+# Channel Manager Rest Api
+
+SiteMinder Channel Manager Rest API Specification.
+
+# Group Channels
+
+## Channels Collection [/channels]
+
+All Channels related actions
+
+### List Channels [GET /channels]
+
+ + Response 200 (application/json)
+
+        [
+              {
+                "id": "8b85bcb0-b2d8-11e5-90af-58424389e6e3",
+                "modifiedAt": "2016-05-11T11:23:01+1000",
+                "siteminderId": "BBN-44977",
+                "channelId": "7deb7aae-b2d8-11e5-90af-58424389e6e3",
+                "reservationType": "Reservation"
+              },
+              {
+                "id": "8b85bfd0-b2d8-11e5-90af-58424389e6e3",
+                "modifiedAt": "2016-05-11T11:23:01+1000",
+                "siteminderId": "BBN-87140",
+                "channelId": "7deb7aae-b2d8-11e5-90af-58424389e6e3",
+                "reservationType": "Reservation"
+              },
+              {
+                "id": "8b85c14c-b2d8-11e5-90af-58424389e6e3",
+                "modifiedAt": "2016-05-11T11:23:01+1000",
+                "siteminderId": "BBN-27538",
+                "channelId": "7deb7aae-b2d8-11e5-90af-58424389e6e3",
+                "reservationType": "Reservation"
+              },
+              {
+                "id": "8b85c44e-b2d8-11e5-90af-58424389e6e3",
+                "modifiedAt": "2016-05-11T11:23:01+1000",
+                "siteminderId": "ENT-17757",
+                "channelId": "7deb7fa4-b2d8-11e5-90af-58424389e6e3",
+                "reservationType": "Reservation"
+              },
+              {
+                "id": "8b5ad7f2-b2d8-11e5-90af-58424389e6e3",
+                "modifiedAt": "2016-05-11T11:23:01+1000",
+                "siteminderId": "BDC-94877",
+                "channelId": "7deb876a-b2d8-11e5-90af-58424389e6e3",
+                "reservationType": "Reservation"
+              },
+              {
+                "id": "8b857fde-b2d8-11e5-90af-58424389e6e3",
+                "modifiedAt": "2016-05-11T11:23:01+1000",
+                "siteminderId": "BDC-29543",
+                "channelId": "7deb876a-b2d8-11e5-90af-58424389e6e3",
+                "reservationType": "Reservation"
+              },
+              {
+                "id": "8b8581be-b2d8-11e5-90af-58424389e6e3",
+                "modifiedAt": "2016-05-11T11:23:01+1000",
+                "siteminderId": "BDC-47284",
+                "channelId": "7deb876a-b2d8-11e5-90af-58424389e6e3",
+                "reservationType": "Reservation"
+              },
+              {
+                "id": "8b85860a-b2d8-11e5-90af-58424389e6e3",
+                "modifiedAt": "2016-05-11T11:23:01+1000",
+                "siteminderId": "BDC-40824",
+                "channelId": "7deb876a-b2d8-11e5-90af-58424389e6e3",
+                "reservationType": "Reservation"
+              },
+              {
+                "id": "8b858812-b2d8-11e5-90af-58424389e6e3",
+                "modifiedAt": "2016-05-11T11:23:01+1000",
+                "siteminderId": "BDC-69789",
+                "channelId": "7deb876a-b2d8-11e5-90af-58424389e6e3",
+                "reservationType": "Reservation"
+              },
+              {
+                "id": "8b8589de-b2d8-11e5-90af-58424389e6e3",
+                "modifiedAt": "2016-05-11T11:23:01+1000",
+                "siteminderId": "BDC-32660",
+                "channelId": "7deb876a-b2d8-11e5-90af-58424389e6e3",
+                "reservationType": "Reservation"
+              },
+              {
+                "id": "8b85bb16-b2d8-11e5-90af-58424389e6e3",
+                "modifiedAt": "2016-05-11T11:23:01+1000",
+                "siteminderId": "BDC-37638",
+                "channelId": "7deb876a-b2d8-11e5-90af-58424389e6e3",
+                "reservationType": "Reservation"
+              },
+              {
+                "id": "8b85c2d2-b2d8-11e5-90af-58424389e6e3",
+                "modifiedAt": "2016-05-11T11:23:01+1000",
+                "siteminderId": "BDC-60289",
+                "channelId": "7deb876a-b2d8-11e5-90af-58424389e6e3",
+                "reservationType": "Reservation"
+              },
+              {
+                "id": "8b85c5d4-b2d8-11e5-90af-58424389e6e3",
+                "modifiedAt": "2016-05-11T11:23:01+1000",
+                "siteminderId": "BDC-97693",
+                "channelId": "7deb876a-b2d8-11e5-90af-58424389e6e3",
+                "reservationType": "Reservation"
+              },
+              {
+                "id": "8b85c8cc-b2d8-11e5-90af-58424389e6e3",
+                "modifiedAt": "2016-05-11T11:23:01+1000",
+                "siteminderId": "IHW-75609",
+                "channelId": "7dec6720-b2d8-11e5-90af-58424389e6e3",
+                "reservationType": "Reservation"
+              }
+        ]
+
+# Group Reservations
+
+## Reservation Collection [/reservations]
+
+All reservation related actions
+
+### List Reservations [GET /reservations?{supplierHotelierId}{since}{reservationTypes}]
+
++ Parameters
+    
+    + supplierHotelierId (required, string, `xxxx`) - Supplier Hotelier ID
+    + since (required, date, `2012-11-02  14:02:57`) - Date
+    + reservationTypes (required, integer, `Reservation`) - Reservation | Modification | Cancellation
+        + Default `Reservation`
+    
++ Response 200 (application/json)
+
+        [
+              {
+                "id": "8b85bcb0-b2d8-11e5-90af-58424389e6e3",
+                "modifiedAt": "2016-05-11T11:23:01+1000",
+                "siteminderId": "BBN-44977",
+                "channelId": "7deb7aae-b2d8-11e5-90af-58424389e6e3",
+                "reservationType": "Reservation"
+              },
+              {
+                "id": "8b85bfd0-b2d8-11e5-90af-58424389e6e3",
+                "modifiedAt": "2016-05-11T11:23:01+1000",
+                "siteminderId": "BBN-87140",
+                "channelId": "7deb7aae-b2d8-11e5-90af-58424389e6e3",
+                "reservationType": "Reservation"
+              },
+              {
+                "id": "8b85c14c-b2d8-11e5-90af-58424389e6e3",
+                "modifiedAt": "2016-05-11T11:23:01+1000",
+                "siteminderId": "BBN-27538",
+                "channelId": "7deb7aae-b2d8-11e5-90af-58424389e6e3",
+                "reservationType": "Reservation"
+              },
+              {
+                "id": "8b85c44e-b2d8-11e5-90af-58424389e6e3",
+                "modifiedAt": "2016-05-11T11:23:01+1000",
+                "siteminderId": "ENT-17757",
+                "channelId": "7deb7fa4-b2d8-11e5-90af-58424389e6e3",
+                "reservationType": "Reservation"
+              },
+              {
+                "id": "8b5ad7f2-b2d8-11e5-90af-58424389e6e3",
+                "modifiedAt": "2016-05-11T11:23:01+1000",
+                "siteminderId": "BDC-94877",
+                "channelId": "7deb876a-b2d8-11e5-90af-58424389e6e3",
+                "reservationType": "Reservation"
+              },
+              {
+                "id": "8b857fde-b2d8-11e5-90af-58424389e6e3",
+                "modifiedAt": "2016-05-11T11:23:01+1000",
+                "siteminderId": "BDC-29543",
+                "channelId": "7deb876a-b2d8-11e5-90af-58424389e6e3",
+                "reservationType": "Reservation"
+              },
+              {
+                "id": "8b8581be-b2d8-11e5-90af-58424389e6e3",
+                "modifiedAt": "2016-05-11T11:23:01+1000",
+                "siteminderId": "BDC-47284",
+                "channelId": "7deb876a-b2d8-11e5-90af-58424389e6e3",
+                "reservationType": "Reservation"
+              },
+              {
+                "id": "8b85860a-b2d8-11e5-90af-58424389e6e3",
+                "modifiedAt": "2016-05-11T11:23:01+1000",
+                "siteminderId": "BDC-40824",
+                "channelId": "7deb876a-b2d8-11e5-90af-58424389e6e3",
+                "reservationType": "Reservation"
+              },
+              {
+                "id": "8b858812-b2d8-11e5-90af-58424389e6e3",
+                "modifiedAt": "2016-05-11T11:23:01+1000",
+                "siteminderId": "BDC-69789",
+                "channelId": "7deb876a-b2d8-11e5-90af-58424389e6e3",
+                "reservationType": "Reservation"
+              },
+              {
+                "id": "8b8589de-b2d8-11e5-90af-58424389e6e3",
+                "modifiedAt": "2016-05-11T11:23:01+1000",
+                "siteminderId": "BDC-32660",
+                "channelId": "7deb876a-b2d8-11e5-90af-58424389e6e3",
+                "reservationType": "Reservation"
+              },
+              {
+                "id": "8b85bb16-b2d8-11e5-90af-58424389e6e3",
+                "modifiedAt": "2016-05-11T11:23:01+1000",
+                "siteminderId": "BDC-37638",
+                "channelId": "7deb876a-b2d8-11e5-90af-58424389e6e3",
+                "reservationType": "Reservation"
+              },
+              {
+                "id": "8b85c2d2-b2d8-11e5-90af-58424389e6e3",
+                "modifiedAt": "2016-05-11T11:23:01+1000",
+                "siteminderId": "BDC-60289",
+                "channelId": "7deb876a-b2d8-11e5-90af-58424389e6e3",
+                "reservationType": "Reservation"
+              },
+              {
+                "id": "8b85c5d4-b2d8-11e5-90af-58424389e6e3",
+                "modifiedAt": "2016-05-11T11:23:01+1000",
+                "siteminderId": "BDC-97693",
+                "channelId": "7deb876a-b2d8-11e5-90af-58424389e6e3",
+                "reservationType": "Reservation"
+              },
+              {
+                "id": "8b85c8cc-b2d8-11e5-90af-58424389e6e3",
+                "modifiedAt": "2016-05-11T11:23:01+1000",
+                "siteminderId": "IHW-75609",
+                "channelId": "7dec6720-b2d8-11e5-90af-58424389e6e3",
+                "reservationType": "Reservation"
+              }
+        ]
+
+### Get Reservation [GET /reservations/{id}]
+
++ Parameters
+    + id (string) - ID of the Reservation in the form of an string
+
++ Response 200 (application/json)
+
+        {
+            "id": "8b151622-b2d8-11e5-90af-58424389e6e3",
+            "siteminderId": "BDC-24492",
+            "sourceId": "24492",
+            "sourceChannel": null,
+            "sourceCreatedAt": "2015-05-11T11:29:53+1000",
+            "sourceModifiedAt": null,
+            "sourceCancelled": null,
+            "sourceCancelledAt": null,
+            "sourceType": "RECEPTIONIST",
+            "hotelCode": null,
+            "hotelName": null,
+            "currency": "AUD",
+            "guestRemarks": "This is a reservation level comments that needs to be included",
+            "guestEta": "2015-05-19T11:29:53+1000",
+            "beddingConfiguration": null,
+            "customerName": null,
+            "customerEmail": null,
+            "customerPhone": null,
+            "customerAddress": null,
+            "modifiedAt": "2016-05-11T11:23:01+1000",
+            "createdAt": "2015-05-11T11:29:53+1000",
+            "fromDate": "2015-05-19T00:00:00+1000",
+            "toDate": "2015-05-22T00:00:00+1000",
+            "cancellationPolicy": null,
+            "cancellationReason": null,
+            "extraInformation": null,
+            "promoName": null,
+            "promoCode": null,
+            "promoDescription": null,
+            "guaranteeInfo": null,
+            "sourceChannelCode": null,
+            "marketCode": null,
+            "market": null,
+            "isNetTotal": false,
+            "hasCreditCard": false,
+            "itineraryId": null,
+            "sourceOfBusiness": null,
+            "channel": {
+                "id": "7deb876a-b2d8-11e5-90af-58424389e6e3",
+                "code": "BDC",
+                "name": "Booking.com",
+                "updatePeriod": 372,
+                "maxInclusionsLength": 0,
+                "allowRates": true,
+                "allowAvailability": true,
+                "allowStopSell": true,
+                "allowMinStay": true,
+                "allowMaxStay": false,
+                "allowInclusions": false,
+                "allowClosedToArrival": true,
+                "allowClosedToDeparture": true,
+                "allowSelfMapping": true,
+                "allowSupplementaryRates": false,
+                "allowPartnerActivation": true,
+                "masterRatesChannel": false,
+                "slowUpdateThreshold": null,
+                "failedUpdateThreshold": null,
+                "hotelConnectionInfo": "Before you proceed with the Wizard steps to connect this Booking Channel to your Channel Manager, please ensure you have contacted the Booking Channel directly and request them to setup the XML interface for you. Once the Booking Channel has confirmed with you that this has been done, please return to the wizard and complete the connection process.",
+                "phone": "+61 2 9006 3364",
+                "addressLine1": null,
+                "addressLine2": null,
+                "addressCountryCode": "AU",
+                "addressSuburb": "SYDNEY",
+                "addressState": null,
+                "addressPostCode": "2000"
+            },
+            "totalAmount": {
+                "amountBeforeTax": 621.58,
+                "amountAfterTax": null,
+                "taxAmount": null
+            },
+            "roomStays": [
+                {
+                    "id": "982fac1e-b2d8-11e5-90af-58424389e6e3",
+                    "roomRateId": "ce1f10b6-be46-11e5-98f1-6d0bf09517b2",
+                    "totalDiscount": null,
+                    "referenceId": null,
+                    "roomTypeCode": "39650901",
+                    "roomName": "Studio",
+                    "roomDescription": null,
+                    "fromDate": "2015-05-19T00:00:00+1000",
+                    "toDate": "2015-05-22T00:00:00+1000",
+                    "numberOfAdults": 2,
+                    "numberOfChildren": 1,
+                    "numberOfInfants": null,
+                    "guestEta": null,
+                    "guestRemarks": "1000 thread counts for the sheets",
+                    "beddingConfiguration": "2 x Queens please; non smoking",
+                    "mealInformation": null,
+                    "mealPlanCode": null,
+                    "smokingRoom": null,
+                    "cancellationPolicy": null,
+                    "extraInformation": null,
+                    "promoName": null,
+                    "promoCode": null,
+                    "promoDescription": null,
+                    "rateCode": null,
+                    "rateName": null,
+                    "rateDescription": null,
+                    "ratePlanCategory": null,
+                    "isNetTotal": false,
+                    "contractId": null,
+                    "bookedOnContractedAllotment": null,
+                    "totalAmount": {
+                        "amountBeforeTax": 621.58,
+                        "amountAfterTax": null,
+                        "taxAmount": null
+                    },
+                    "taxes": [],
+                    "extraAmount": null,
+                    "extraCharges": [],
+                    "commission": null,
+                    "deposit": null,
+                    "discounts": [],
+                    "roomRates": [
+                        {
+                            "fromDate": "2015-05-19T00:00:00+1000",
+                            "toDate": "2015-05-19T00:00:00+1000",
+                            "rateCode": null,
+                            "description": null,
+                            "promoCode": null,
+                            "rateName": null,
+                            "ratePlanCategory": null,
+                            "promoName": null,
+                            "promoDescription": null,
+                            "isNetTotal": false,
+                            "baseAmount": null,
+                            "totalAmount": {
+                                "amountBeforeTax": 121.09,
+                                "amountAfterTax": 134.55,
+                                "taxAmount": 13.46
+                            },
+                            "taxes": [],
+                            "extraAmount": null,
+                            "extraCharges": [],
+                            "commission": null,
+                            "totalDiscount": null,
+                            "discounts": [],
+                            "grossTotal": {
+                                "amountBeforeTax": 121.09,
+                                "amountAfterTax": 134.55,
+                                "taxAmount": 13.46
+                            },
+                            "netTotal": null
+                        },
+                        {
+                            "fromDate": "2015-05-21T00:00:00+1000",
+                            "toDate": "2015-05-21T00:00:00+1000",
+                            "rateCode": null,
+                            "description": null,
+                            "promoCode": null,
+                            "rateName": null,
+                            "ratePlanCategory": null,
+                            "promoName": null,
+                            "promoDescription": null,
+                            "isNetTotal": false,
+                            "baseAmount": null,
+                            "totalAmount": {
+                                "amountBeforeTax": 121.09,
+                                "amountAfterTax": 134.55,
+                                "taxAmount": 13.46
+                            },
+                            "taxes": [],
+                            "extraAmount": null,
+                            "extraCharges": [],
+                            "commission": null,
+                            "totalDiscount": null,
+                            "discounts": [],
+                            "grossTotal": {
+                                "amountBeforeTax": 121.09,
+                                "amountAfterTax": 134.55,
+                                "taxAmount": 13.46
+                            },
+                            "netTotal": null
+                        },
+                        {
+                            "fromDate": "2015-05-20T00:00:00+1000",
+                            "toDate": "2015-05-20T00:00:00+1000",
+                            "rateCode": null,
+                            "description": null,
+                            "promoCode": null,
+                            "rateName": null,
+                            "ratePlanCategory": null,
+                            "promoName": null,
+                            "promoDescription": null,
+                            "isNetTotal": false,
+                            "baseAmount": null,
+                            "totalAmount": {
+                                "amountBeforeTax": 122.89,
+                                "amountAfterTax": 136.55,
+                                "taxAmount": 13.66
+                            },
+                            "taxes": [],
+                            "extraAmount": null,
+                            "extraCharges": [],
+                            "commission": null,
+                            "totalDiscount": null,
+                            "discounts": [],
+                            "grossTotal": {
+                                "amountBeforeTax": 122.89,
+                                "amountAfterTax": 136.55,
+                                "taxAmount": 13.66
+                            },
+                            "netTotal": null
+                        },
+                        {
+                            "fromDate": "2015-05-22T00:00:00+1000",
+                            "toDate": "2015-05-22T00:00:00+1000",
+                            "rateCode": null,
+                            "description": null,
+                            "promoCode": null,
+                            "rateName": null,
+                            "ratePlanCategory": null,
+                            "promoName": null,
+                            "promoDescription": null,
+                            "isNetTotal": false,
+                            "baseAmount": null,
+                            "totalAmount": {
+                                "amountBeforeTax": 121.09,
+                                "amountAfterTax": 134.55,
+                                "taxAmount": 13.46
+                            },
+                            "taxes": [],
+                            "extraAmount": null,
+                            "extraCharges": [],
+                            "commission": null,
+                            "totalDiscount": null,
+                            "discounts": [],
+                            "grossTotal": {
+                                "amountBeforeTax": 121.09,
+                                "amountAfterTax": 134.55,
+                                "taxAmount": 13.46
+                            },
+                            "netTotal": null
+                        }
+                    ],
+                    "guests": [
+                        {
+                            "id": 6,
+                            "referenceId": null,
+                            "sequenceId": null,
+                            "companyName": null,
+                            "title": null,
+                            "firstName": "Annie",
+                            "middleName": null,
+                            "lastName": "Test",
+                            "email": "annietest@siteminder.com",
+                            "phone": "+61403279560",
+                            "secondaryPhone": "+61403279561",
+                            "mobilePhone": "+61403279560",
+                            "fax": "+61403279000",
+                            "nationality": null,
+                            "ageBracket": null,
+                            "age": null,
+                            "addressLine1": "88 Cumberland Street",
+                            "addressLine2": "The Rocks",
+                            "addressCity": "Sydney",
+                            "addressState": "New South Wales",
+                            "addressPostCode": "2000",
+                            "addressCountry": "Australia",
+                            "arrivalDetails": null,
+                            "arrivalTransportType": "Air",
+                            "arrivalTransportId": "US382",
+                            "arrivalTransportTime": null,
+                            "arrivalTransportDateTime": "2015-05-19T11:29:53+1000",
+                            "departureDetails": null,
+                            "departureTransportType": "Air",
+                            "departureTransportId": "US450",
+                            "departureTransportTime": null,
+                            "departureTransportDateTime": "2015-05-22T11:29:53+1000",
+                            "loyaltyProgramName": "Red Card",
+                            "loyaltyProgramReferenceId": "G12376700",
+                            "loyaltyProgramExpiryMonth": null,
+                            "loyaltyProgramExpiryYear": null
+                        },
+                        {
+                            "id": 5,
+                            "referenceId": null,
+                            "sequenceId": null,
+                            "companyName": null,
+                            "title": null,
+                            "firstName": "Sarah",
+                            "middleName": null,
+                            "lastName": "Test",
+                            "email": null,
+                            "phone": "69543058",
+                            "secondaryPhone": null,
+                            "mobilePhone": null,
+                            "fax": null,
+                            "nationality": null,
+                            "ageBracket": null,
+                            "age": null,
+                            "addressLine1": null,
+                            "addressLine2": null,
+                            "addressCity": null,
+                            "addressState": null,
+                            "addressPostCode": null,
+                            "addressCountry": null,
+                            "arrivalDetails": null,
+                            "arrivalTransportType": null,
+                            "arrivalTransportId": null,
+                            "arrivalTransportTime": null,
+                            "arrivalTransportDateTime": null,
+                            "departureDetails": null,
+                            "departureTransportType": null,
+                            "departureTransportId": null,
+                            "departureTransportTime": null,
+                            "departureTransportDateTime": null,
+                            "loyaltyProgramName": null,
+                            "loyaltyProgramReferenceId": null,
+                            "loyaltyProgramExpiryMonth": null,
+                            "loyaltyProgramExpiryYear": null
+                        }
+                    ]
+                }
+            ],
+            "guests": [],
+            "profiles": [],
+            "taxes": [],
+            "extraCharges": [],
+            "extraAmount": null,
+            "commission": null,
+            "deposit": {
+                "description": "Reservation deposit",
+                "percentage": 10,
+                "totalAmount": {
+                    "amountBeforeTax": null,
+                    "amountAfterTax": 69.06,
+                    "taxAmount": null
+                }
+            },
+            "totalDiscount": null,
+            "discounts": []
+        } 
+
+### Get Reservation Credit Card [GET /reservations/{id}/creditCard]
+
++ Parameters
+    + id (string) - ID of the Reservation in the form of an string
+
++ Response 200 (application/json)
+
+        {
+          "paymentCardType": "VI",
+          "paymentCardName": "Penny Test",
+          "paymentCardExpiryMonth": 12,
+          "paymentCardExpiryYear": 2016,
+          "paymentInformation": null,
+          "partialPaymentCardNumber": null,
+          "paymentCardNumber": null
+        }  
+
+### Confirm/Create a Reservation Receipt [POST /reservations/{reservationId}/receipt]
+
++ Parameters
+    
+    + reservationId (required, string, `xxxx`) - Reservation ID
+    
++ Request (application/json)
+
+        {
+            "supplierHotelierId": "d8e8f500-a85e-11e5-be06-0cec7daded9a",
+            "createdAt": "2015-12-22T18:07:27+1100",
+            "reservationModifiedAt": "2015-12-22T18:07:27+1100"
+        }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "reservationId": "8b505444-b2d8-11e5-90af-58424389e6e3",
+                "receiptId": "75b43948-b2d8-11e5-90af-58424389e6e3"
+            }
+            
+### Update a Reservation Receipt [PUT /reservations/{reservationId}/receipt/{receiptId}]
+
++ Parameters
+    
+    + reservationId (required, string, `xxxx`) - Reservation ID
+    + receiptId (required, string, `yyy`) - Receipt ID
+
++ Request (application/json)
+
+        {
+            "supplierHotelierId": "d8e8f500-a85e-11e5-be06-0cec7daded9a",
+            "createdAt": "2015-12-22T18:07:27+1100",
+            "reservationModifiedAt": "2015-12-22T18:07:27+1100"
+        }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "synchronized": true
+            }
+
+### Create a Reservation Delivery [POST /reservation/{reservationId}/receipt/{receiptId}/delivery/]
+
++ Parameters
+    
+    + reservationId (required, string, `xxxx`) - Reservation ID
+    + receiptId (required, string, `yyy`) - Receipt ID
+
+
++ Request (application/json)
+
+        {
+           "status" : "pending",
+           "type" : "Reservation",
+           "deliveryId" : "ABC-01",
+           "confirmationId" : "ABC-01-SM",
+           "deliveryAttempts" : "5",
+           "failureReason": "updated",
+           "createdAt": "2015-12-22T18:07:27+1100",
+           "deliveredAt": "2015-12-22T18:07:27+1100",
+           "deliveryLastAttemptedAt": "2015-12-22T18:07:27+1100",
+           "failedAt": "2015-12-22T18:07:27+1100"
+        }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "deliveryReceiptId": "f9660584-a85e-11e5-be06-0cec7daded9a",
+                "synchronized": "true"
+            }
+
+### Update a Reservation Delivery [PUT /reservation/{reservationId}/receipt/{receiptId}/delivery/{deliveryReceiptId}]
+
++ Parameters
+    
+    + reservationId (required, string, `xxxx`) - Reservation ID
+    + receiptId (required, string, `yyy`) - Receipt ID
+    + deliveryReceiptId (required, string, `yyy`) - Delivery Receipt ID
+    
++ Request (application/json)
+
+        {
+           "status" : "pending",
+           "type" : "Reservation",
+           "deliveryId" : "ABC-01",
+           "confirmationId" : "ABC-01-SM",
+           "deliveryAttempts" : "5",
+           "failureReason": "updated",
+           "createdAt": "2015-12-22T18:07:27+1100",
+           "deliveredAt": "2015-12-22T18:07:27+1100",
+           "deliveryLastAttemptedAt": "2015-12-22T18:07:27+1100",
+           "failedAt": "2015-12-22T18:07:27+1100"
+        }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "deliveryReceiptId": "f9660584-a85e-11e5-be06-0cec7daded9a",
+                "synchronized": "true"
+            }
+
+
+
+# Group Supplier Hotelier
+
+## Supplier Hotelier Collection [/supplierHoteliers]
+
+All Supplier Hotelier related actions
+
+### Create Supplier Hotelier [POST /supplierHoteliers]
+
++ Request (application/json)
+
+        {
+          "hotelierId" : "ubhxbalx99",
+          "pmsCode": "OPERA",
+          "enabled": true,
+          "inventoryEnabled": true,
+          "notificationEnabled": true,
+          "notificationEmail": "juan.villalba@gmail.com",
+          "description": "1:4444"
+        }
+
++ Response 201 (application/json)
+
+### Get Supplier Hotelier [GET /supplierHoteliers/{id}]
+
++ Parameters
+    + id (string) - ID of the Supplier Hotelier in the form of an string
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "id": "27a93918-bf37-11e5-98f1-6d0bf09517b2",
+              "pmsCode": "LITTLEHOTELIER",
+              "hotelierId": "ubhxbalx99",
+              "enabled": true,
+              "inventoryEnabled": true,
+              "notificationEnabled": true,
+              "notificationEnabledAt": "2015-04-27T16:45:53+1000",
+              "notificationEmail": null,
+              "hotelier": {
+                "id": "ubhxbalx99",
+                "name": "Little Hotelier Integrated Test",
+                "siteminderPropertyId": null,
+                "addressLine1": "88 Cumberland Street",
+                "addressLine2": "The Rocks",
+                "addressPostCode": "2000",
+                "addressState": "NSW",
+                "addressSuburb": "Sydney",
+                "addressCountry": "AU",
+                "createdAt": "2015-04-27T16:42:59+1000",
+                "lastReservationAt": "2016-05-11T11:23:01+1000"
+            }
+### List Supplier Hoteliers [GET /supplierHoteliers?{pmsCode}]
+
++ Parameters
+    
+    + pmsCode (optional, string, `OPERA`) - PMS Code
+    
++ Response 200 (application/json)
+
+        [
+            {
+                "id": "27a93d78-bf37-11e5-98f1-6d0bf09517b2",
+                "pmsCode": "OPERA",
+                "hotelierId": "uwj7bakve8",
+                "enabled": false,
+                "inventoryEnabled": null,
+                "notificationEnabled": null,
+                "notificationEnabledAt": null,
+                "notificationEmail": null,
+                "hotelier": {
+                    "id": "uwj7bakve8",
+                    "name": "Thomas's Test Hotel",
+                    "siteminderPropertyId": null,
+                    "addressLine1": "447",
+                    "addressLine2": "Kent St",
+                    "addressPostCode": "2000",
+                    "addressState": "NSW",
+                    "addressSuburb": "Sydney",
+                    "addressCountry": "AU",
+                    "createdAt": "2015-04-24T11:51:13+1000",
+                    "lastReservationAt": null
+                }
+            },
+            {
+                "id": "27a96564-bf37-11e5-98f1-6d0bf09517b2",
+                "pmsCode": "OPERA",
+                "hotelierId": "xz85p2a860",
+                "enabled": true,
+                "inventoryEnabled": true,
+                "notificationEnabled": true,
+                "notificationEnabledAt": "2015-05-18T15:40:00+1000",
+                "notificationEmail": "lea.castro@siteminder.com",
+                "hotelier": {
+                    "id": "xz85p2a860",
+                    "name": "Lea Opera Test",
+                    "siteminderPropertyId": null,
+                    "addressLine1": "88 Cumberland St",
+                    "addressLine2": null,
+                    "addressPostCode": "2000",
+                    "addressState": "NSW",
+                    "addressSuburb": "Sydney",
+                    "addressCountry": "AU",
+                    "createdAt": "2015-05-18T15:25:00+1000",
+                    "lastReservationAt": "2016-05-12T11:24:01+1000"
+                }
+            },
+            {
+                "id": "27aa17a2-bf37-11e5-98f1-6d0bf09517b2",
+                "pmsCode": "OPERA",
+                "hotelierId": "xbtpeuirs7",
+                "enabled": true,
+                "inventoryEnabled": true,
+                "notificationEnabled": true,
+                "notificationEnabledAt": "2015-07-22T12:55:00+1000",
+                "notificationEmail": "lea.castro@siteminder.com",
+                "hotelier": {
+                    "id": "xbtpeuirs7",
+                    "name": "Opera Decoupled Test Hotel",
+                    "siteminderPropertyId": null,
+                    "addressLine1": "88 Cumberland St",
+                    "addressLine2": null,
+                    "addressPostCode": "2000",
+                    "addressState": "NSW",
+                    "addressSuburb": "Sydney",
+                    "addressCountry": "AU",
+                    "createdAt": null,
+                    "lastReservationAt": "2016-05-11T11:23:01+1000"
+                }
+            },
+            {
+                "id": "27aa2da0-bf37-11e5-98f1-6d0bf09517b2",
+                "pmsCode": "OPERA",
+                "hotelierId": "xhezyoeada",
+                "enabled": true,
+                "inventoryEnabled": true,
+                "notificationEnabled": true,
+                "notificationEnabledAt": "2015-09-29T08:35:00+1000",
+                "notificationEmail": null,
+                "hotelier": {
+                    "id": "xhezyoeada",
+                    "name": "Opera Test Reloaded",
+                    "siteminderPropertyId": null,
+                    "addressLine1": "88 Cumberland St",
+                    "addressLine2": null,
+                    "addressPostCode": "2000",
+                    "addressState": "NSW",
+                    "addressSuburb": "Sydney",
+                    "addressCountry": "AU",
+                    "createdAt": "2015-09-28T14:46:32+1000",
+                    "lastReservationAt": null
+                }
+            },
+            {
+                "id": "27aa2f58-bf37-11e5-98f1-6d0bf09517b2",
+                "pmsCode": "OPERA",
+                "hotelierId": "x9jovb350y",
+                "enabled": true,
+                "inventoryEnabled": true,
+                "notificationEnabled": true,
+                "notificationEnabledAt": "2015-09-29T08:43:25+1000",
+                "notificationEmail": "lea.castro@siteminder.com",
+                "hotelier": {
+                    "id": "x9jovb350y",
+                    "name": "Opera Test Decoupled 2",
+                    "siteminderPropertyId": null,
+                    "addressLine1": "88 Cumberland St",
+                    "addressLine2": null,
+                    "addressPostCode": "2000",
+                    "addressState": "NSW",
+                    "addressSuburb": "Sydney",
+                    "addressCountry": "AU",
+                    "createdAt": "2015-09-29T08:39:01+1000",
+                    "lastReservationAt": null
+                }
+            },
+            {
+                "id": "27aa3570-bf37-11e5-98f1-6d0bf09517b2",
+                "pmsCode": "OPERA",
+                "hotelierId": "ximryzmo9w",
+                "enabled": false,
+                "inventoryEnabled": null,
+                "notificationEnabled": null,
+                "notificationEnabledAt": null,
+                "notificationEmail": null,
+                "hotelier": {
+                    "id": "ximryzmo9w",
+                    "name": "Luciana Test (Reloaded)",
+                    "siteminderPropertyId": null,
+                    "addressLine1": "88 Cumberland St",
+                    "addressLine2": null,
+                    "addressPostCode": "2000",
+                    "addressState": "NSW",
+                    "addressSuburb": "Sydney",
+                    "addressCountry": "AU",
+                    "createdAt": null,
+                    "lastReservationAt": null
+                }
+            },
+            {
+                "id": "642042df-dcc0-4795-ba36-6bf0bbdf67bd",
+                "pmsCode": "OPERA",
+                "hotelierId": "ubhxbalx99",
+                "enabled": true,
+                "inventoryEnabled": true,
+                "notificationEnabled": true,
+                "notificationEnabledAt": null,
+                "notificationEmail": "juan.villalba@gmail.com",
+                "hotelier": {
+                    "id": "ubhxbalx99",
+                    "name": "Little Hotelier Integrated Test",
+                    "siteminderPropertyId": null,
+                    "addressLine1": "88 Cumberland Street",
+                    "addressLine2": "The Rocks",
+                    "addressPostCode": "2000",
+                    "addressState": "NSW",
+                    "addressSuburb": "Sydney",
+                    "addressCountry": "AU",
+                    "createdAt": "2015-04-27T16:42:59+1000",
+                    "lastReservationAt": "2016-05-11T11:23:01+1000"
+                }
+            }
+        ]
+### List Supplier Hotelier's Channels [GET /supplierHoteliers/{id}/channels]
+
++ Parameters
+    
+    + id (string, `XXXX`) - ID of the Supplier Hotelier in the form of an string
+    
++ Response 200 (application/json)
+
+        [
+            {
+                "id": "x74DdNcxqL203UVcL",
+                "channelId": "7deb9ff2-b2d8-11e5-90af-58424389e6e3",
+                "enabled": true
+            },
+            {
+                "id": "xGH230KkGvmtSJsAr",
+                "channelId": "7deb6e56-b2d8-11e5-90af-58424389e6e3",
+                "enabled": true
+            },
+            {
+                "id": "xGfHlQ5rlpJ4hzeT+",
+                "channelId": "7deb7aae-b2d8-11e5-90af-58424389e6e3",
+                "enabled": true
+            },
+            {
+                "id": "xxgDU0r8jfxo5q2ad",
+                "channelId": "7de971d2-b2d8-11e5-90af-58424389e6e3",
+                "enabled": true
+            },
+            {
+                "id": "xWiTMAoduZIj+NbD7",
+                "channelId": "7deb876a-b2d8-11e5-90af-58424389e6e3",
+                "enabled": true
+            }
+        ]
+
+
+# Group Supplier Hotelier Room Rate
+
+## Supplier Hotelier Room Rate Collection [/supplierHotelierRoomRates/]
+
+All Supplier Hotelier Room Rate related actions
+
+### Create Supplier Hotelier RoomRate [POST /supplierHotelierRoomRates]
+
++ Request (application/json)
+
+        {
+            "roomRateId": "cf8ba070-a85e-11e5-be06-0cec7daded9a",
+            "supplierHotelierID": "d8e898bc-a85e-11e5-be06-0cec7daded9a",
+            "description": "Double B&B"
+        }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "id": "f9660584-a85e-11e5-be06-0cec7daded9a",
+                "roomRateId": "f96222-a85e-11e5-be06-0cec7daded9a",
+                "description": "Something"
+            }
+
+### List Supplier Hotelier Room Rate Channels [GET /supplierHotelierRoomRates/{id}/channels]
+
++ Parameters
+    
+    + id (string, `XXXX`) - ID of the Supplier RoomRate in the form of an string
+    
++ Response 200 (application/json)
+
+        [
+            {
+                "id": "x74DdNcxqL203UVcL",
+                "channelId": "7deb9ff2-b2d8-11e5-90af-58424389e6e3",
+                "enabled": true
+            },
+            {
+                "id": "xGH230KkGvmtSJsAr",
+                "channelId": "7deb6e56-b2d8-11e5-90af-58424389e6e3",
+                "enabled": true
+            },
+            {
+                "id": "xGfHlQ5rlpJ4hzeT+",
+                "channelId": "7deb7aae-b2d8-11e5-90af-58424389e6e3",
+                "enabled": true
+            },
+            {
+                "id": "xxgDU0r8jfxo5q2ad",
+                "channelId": "7de971d2-b2d8-11e5-90af-58424389e6e3",
+                "enabled": true
+            },
+            {
+                "id": "xWiTMAoduZIj+NbD7",
+                "channelId": "7deb876a-b2d8-11e5-90af-58424389e6e3",
+                "enabled": true
+            }
+        ]            
+
+# Group Inventory
+
+## Inventory Collection [/inventory/]
+
+All Inventory related actions
+
+### Inventory Rate and Restrictions [POST /inventory/roomRate/{id}]
+
++ Parameters
+    
+    + id (string, `XXXX`) - ID of the Supplier RoomRate in the form of an string
+
+
++ Request (application/json)
+
+        {
+           "echoToken": "XXXXX",
+           "updates" :
+            [
+               {"2017-01-11" : {"cta" : "true" , "ctd" : "false" , "minStay" : "3" , "maxStay" : "3" , "rate" : "2.2" ,"stopSell" : "true"}} ,
+               {"2017-01-12" : {"cta" : "false" , "ctd" : "true" , "minStay" : "23" , "maxStay" : "3" , "rate" : "4","stopSell" : "false"}} ,
+               {"2017-01-13" : {"cta" : "true" , "ctd" : "true" , "minStay" : "23" , "maxStay" : "3" , "rate" : "4","stopSell" : "true"}} 
+        
+            ]
+        }
+
++ Response 200 (application/json)
+
+### Inventory Availability [POST /inventory/roomType/{id}]
+
++ Parameters
+    
+    + id (string, `XXXX`) - ID of the Supplier RoomRate in the form of an string
+
++ Request (application/json)
+
+        {
+           "echoToken": "XXXXX",
+           "updates" :
+            [
+               {"2017-01-11" : {"availability" : "3" }} ,
+               {"2017-01-12" : {"availability" : "2" }} 
+            ]
+        }
+
++ Response 200 (application/json)
