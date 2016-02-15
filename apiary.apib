@@ -594,7 +594,7 @@ All reservation related actions
           "paymentCardNumber": null
         }  
 
-### Confirm/Create a Reservation Receipt [POST /reservations/{reservationId}/receipt]
+### Send Receipt for a Reservation  [POST /reservations/{reservationId}/receipt]
 
 + Parameters
     
@@ -617,12 +617,11 @@ All reservation related actions
                 "receiptId": "75b43948-b2d8-11e5-90af-58424389e6e3"
             }
             
-### Update a Reservation Receipt [PUT /reservations/{reservationId}/receipt/{receiptId}]
+### Update Send Receipt for a Reservation [PUT /reservations/{reservationId}/receipt]
 
 + Parameters
     
     + reservationId (required, string, `xxxx`) - Reservation ID
-    + receiptId (required, string, `yyy`) - Receipt ID
 
 + Request (application/json)
 
@@ -640,13 +639,11 @@ All reservation related actions
                 "synchronized": true
             }
 
-### Create a Reservation Delivery [POST /reservation/{reservationId}/receipt/{receiptId}/delivery/]
+### Create a Supplier Reservations [POST /reservation/{reservationId}/supplier-reservations]
 
 + Parameters
     
     + reservationId (required, string, `xxxx`) - Reservation ID
-    + receiptId (required, string, `yyy`) - Receipt ID
-
 
 + Request (application/json)
 
@@ -672,13 +669,12 @@ All reservation related actions
                 "synchronized": "true"
             }
 
-### Update a Reservation Delivery [PUT /reservation/{reservationId}/receipt/{receiptId}/delivery/{deliveryReceiptId}]
+### Update a Supplier Reservations [PUT /reservation/{reservationId}/supplier-reservations/{supplierReservationId}]
 
 + Parameters
     
     + reservationId (required, string, `xxxx`) - Reservation ID
-    + receiptId (required, string, `yyy`) - Receipt ID
-    + deliveryReceiptId (required, string, `yyy`) - Delivery Receipt ID
+    + supplierReservationId (required, string, `yyy`) - Delivery Receipt ID
     
 + Request (application/json)
 
